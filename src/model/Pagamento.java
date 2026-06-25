@@ -37,6 +37,7 @@ public class Pagamento {
     @Override
     public String toString() {
         return "Pagamento{id=" + idPagamento + ", valor=" + valor +
-                ", forma='" + formaPagamento + "', status='" + status + "', data='" + dataPagamento + "', passagem=" + idPassagem + "}";
+                ", forma='" + formaPagamento + "', status='" + status + "', data='"
+                + dataPagamento + "', passagem=" + idPassagem + "}";
     }
 }

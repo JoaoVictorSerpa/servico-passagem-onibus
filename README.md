@@ -1,6 +1,6 @@
 # 🚌 Sistema de Passagens de Ônibus – Catarinense
 
-Projeto acadêmico desenvolvido para a disciplina de **Banco de Dados II** da **UNIVALI – Escola Politécnica**, com o objetivo de modelar e implementar um sistema de gerenciamento de passagens de ônibus inspirado na empresa Catarinense Transporte e Turismo.
+Projeto acadêmico desenvolvido para a disciplina de **Banco de Dados** da **UNIVALI – Escola Politécnica**, com o objetivo de modelar e implementar um sistema de gerenciamento de passagens de ônibus inspirado na empresa Catarinense Transporte e Turismo.
 
 ---
 
@@ -9,8 +9,8 @@ Projeto acadêmico desenvolvido para a disciplina de **Banco de Dados II** da **
 - Salomão Patrick França Alves Panas
 - João Victor Serpa
 
-**Professor:** Maurício Pasetto de Freitas  
-**Instituição:** UNIVALI – Escola Politécnica 
+**Professor:** Maurício Pasetto de Freitas
+**Instituição:** UNIVALI – Escola Politécnica – NEI
 **Curso:** Ciência da Computação
 
 ---
@@ -39,6 +39,8 @@ O banco de dados foi desenvolvido no **MySQL** e contém 11 tabelas normalizadas
 | `passagem` | Passagens compradas por clientes |
 | `pagamento` | Pagamentos das passagens |
 
+O script completo de criação e população do banco está no arquivo **`catarinense_schema.sql`** na raiz do projeto.
+
 ---
 
 ## 💻 Tecnologias utilizadas
@@ -46,33 +48,38 @@ O banco de dados foi desenvolvido no **MySQL** e contém 11 tabelas normalizadas
 - **Java 25** — linguagem de programação
 - **JDBC** — conexão direta com o banco de dados (sem ORM)
 - **MySQL 8.0** — banco de dados relacional
-- **IntelliJ IDEA** — IDE de desenvolvimento
+- **Maven** — gerenciamento de dependências
+- **IntelliJ IDEA / Cursor** — IDE de desenvolvimento
 
 ---
 
 ## 📁 Estrutura do projeto
 
 ```
-src/
-├── Main.java                  # ponto de entrada do sistema
-├── connection/
-│   └── ConnectionDB.java      # gerencia a conexão com o MySQL
-├── model/
-│   ├── Cliente.java           # representa a tabela cliente
-│   ├── Viagem.java            # representa a tabela viagem
-│   ├── Passagem.java          # representa a tabela passagem
-│   └── Pagamento.java         # representa a tabela pagamento
-├── dao/
-│   ├── ClienteDAO.java        # CRUD da tabela cliente
-│   ├── ViagemDAO.java         # CRUD da tabela viagem
-│   ├── PassagemDAO.java       # CRUD da tabela passagem
-│   └── PagamentoDAO.java      # CRUD da tabela pagamento
-└── menu/
-    ├── MenuPrincipal.java     # menu inicial do sistema
-    ├── MenuCliente.java       # menu de operações de cliente
-    ├── MenuViagem.java        # menu de operações de viagem
-    ├── MenuPassagem.java      # menu de operações de passagem
-    └── MenuPagamento.java     # menu de operações de pagamento
+servico-passagem-onibus/
+├── src/
+│   ├── Main.java                  # ponto de entrada do sistema
+│   ├── connection/
+│   │   └── ConnectionDB.java      # gerencia a conexão com o MySQL
+│   ├── model/
+│   │   ├── Cliente.java           # representa a tabela cliente
+│   │   ├── Viagem.java            # representa a tabela viagem
+│   │   ├── Passagem.java          # representa a tabela passagem
+│   │   └── Pagamento.java         # representa a tabela pagamento
+│   ├── dao/
+│   │   ├── ClienteDAO.java        # CRUD da tabela cliente
+│   │   ├── ViagemDAO.java         # CRUD da tabela viagem
+│   │   ├── PassagemDAO.java       # CRUD da tabela passagem
+│   │   └── PagamentoDAO.java      # CRUD da tabela pagamento
+│   └── menu/
+│       ├── MenuPrincipal.java     # menu inicial do sistema
+│       ├── MenuCliente.java       # menu de operações de cliente
+│       ├── MenuViagem.java        # menu de operações de viagem
+│       ├── MenuPassagem.java      # menu de operações de passagem
+│       └── MenuPagamento.java     # menu de operações de pagamento
+├── catarinense_schema.sql         # script SQL de criação e população do banco
+├── pom.xml                        # dependências do projeto (Maven)
+└── README.md                      # documentação do projeto
 ```
 
 ---
@@ -82,7 +89,7 @@ src/
 ### Pré-requisitos
 - Java 25 instalado
 - MySQL 8.0 instalado e rodando
-- IntelliJ IDEA
+- IntelliJ IDEA ou VS Code
 
 ### Passo a passo
 
@@ -93,7 +100,10 @@ git clone https://github.com/SalomaoTK96/servico-passagem-onibus.git
 
 **2. Importe o banco de dados**
 - Abra o MySQL Workbench
-- Execute o arquivo `catarinense_schema.sql` para criar o schema e popular as tabelas
+- Vá em **File → Open SQL Script**
+- Selecione o arquivo `catarinense_schema.sql`
+- Clique no raio ⚡ para executar
+- O banco `catarinense` será criado com todas as tabelas e dados de exemplo
 
 **3. Configure a conexão**
 - Abra o arquivo `src/connection/ConnectionDB.java`
